@@ -10,6 +10,7 @@
       tree
       wget
       zoxide
+      direnv
     ];
 
     programs.difftastic = {
@@ -18,6 +19,22 @@
       options = {
         background = "dark";
       };
+    };
+
+    programs.nushell = {
+      enable = true;
+      plugins = [ pkgs.nushellPlugins.query ];
+    };
+
+    programs.direnv = {
+      enable = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    programs.zoxide = {
+      enable = true;
+      enableNushellIntegration = true;
     };
 
     programs.git = {

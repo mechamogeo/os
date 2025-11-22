@@ -4,6 +4,6 @@
     inherit home;
     name = "${user}";
     isHidden = false;
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 }

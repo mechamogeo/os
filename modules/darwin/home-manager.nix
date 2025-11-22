@@ -11,7 +11,7 @@
         inherit stateVersion;
         enableNixpkgsReleaseCheck = false;
         packages = [
-          pkgs.mas
+          pkgs.nushell
         ];
       };
     };
