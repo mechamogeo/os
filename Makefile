@@ -1,6 +1,6 @@
 # Minimal Makefile
 NIX_FLAKES_BUILD_CMD = nix --extra-experimental-features 'nix-command flakes' build --
-NIX_DARWIN_CMD = sudo ./result/sw/bin/darwin-rebuild switch --flake --
+NIX_DARWIN_CMD = sudo ./result/sw/bin/darwin-rebuild
 
 .PHONY: help setup personal update rollback
 
@@ -11,7 +11,6 @@ help:
 	@echo ""
 	@echo "System Management:"
 	@echo "  setup        Run setup"
-	@echo "  update       Update the profile automatically"
 	@echo "  rollback     Roll back to previous generation"
 	@echo ""
 	@echo "Profiles Management:"
@@ -30,10 +29,6 @@ personal:
 	$(NIX_FLAKES_BUILD_CMD) .#darwinConfigurations.personal.system
 	$(NIX_DARWIN_CMD) switch --flake .#personal
 
-update:
-	@echo "--> Switching to new generation"
-	switch
-
 rollback:
 	@echo "--> Rolling back to previous generation"
-	$(NIX_DARWIN_CMD) rollback
+	$(NIX_DARWIN_CMD) --rollback

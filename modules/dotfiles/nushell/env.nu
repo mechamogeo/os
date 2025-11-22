@@ -2,7 +2,8 @@
 
 # PATH definitions
 $env.PATH ++= [
-    "~/.nix-profile/bin"
+    /usr/local/bin
+    ($env.HOME)/.nix-profile/bin
 ]
 
 # FNM environment variables
