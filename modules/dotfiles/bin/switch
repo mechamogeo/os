@@ -1,0 +1,32 @@
+#! /bin/bash
+
+cd ~/os || exit 1
+
+# Detect hostname and use appropriate configuration
+HOSTNAME=$(hostname -s)
+case "$HOSTNAME" in
+    "personal")
+        echo "Detected Personal Setup"
+        nix run .#personal-switch
+        ;;
+    *)
+        echo "Unknown hostname: $HOSTNAME"
+        echo "Available configurations:"
+        echo "  - personal"
+        echo ""
+        echo "Usage: $0 [configuration-name]"
+        if [ -n "$1" ]; then
+            case "$1" in
+                "personal")
+                    nix run .#personal-switch
+                    ;;
+                *)
+                    echo "Invalid configuration: $1"
+                    exit 1
+                    ;;
+            esac
+        else
+            exit 1
+        fi
+        ;;
+esac
