@@ -12,3 +12,7 @@ $env.config = {
     isolation: true
   }
 }
+
+# Apply the plugins
+const plugins_path = ($nu.config-path | path dirname | path join 'plugins')
+source ($plugins_path | path join 'zoxide.nu')

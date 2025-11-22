@@ -3,6 +3,7 @@
 # PATH definitions
 $env.PATH ++= [
     /usr/local/bin
+    /run/current-system/sw/bin
     ($env.HOME)/.nix-profile/bin
 ]
 
