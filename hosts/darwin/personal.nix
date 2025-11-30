@@ -32,6 +32,7 @@ in
 
     # Homebrew and casks
     (modules /programs/homebrew/darwin.nix null)
+    (modules /programs/homebrew/songs.nix null)
     (modules /programs/homebrew/zed.nix null)
     (modules /programs/homebrew/docker.nix null)
     (modules /programs/homebrew/ollama.nix null)

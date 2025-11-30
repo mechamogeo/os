@@ -5,6 +5,7 @@ $env.PATH ++= [
     /usr/local/bin
     /run/current-system/sw/bin
     ($env.HOME)/.nix-profile/bin
+    ($env.HOME)/.local/bin
 ]
 
 # FNM environment variables
